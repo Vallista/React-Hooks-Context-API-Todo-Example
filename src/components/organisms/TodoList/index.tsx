@@ -19,8 +19,8 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo }) => {
   const classProps = classNames(className, styles['default'])
 
   const createTodos = () =>
-    todoList.map((item) => (
-      <ListItem>
+    todoList.map((item, index) => (
+      <ListItem key={index}>
         <CheckBox text={item.description} name="todos" value={item.description} />
       </ListItem>
     ))
