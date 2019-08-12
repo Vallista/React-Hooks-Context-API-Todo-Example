@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-import TodoList from './components/organisms/TodoList'
+import TodoList from './components/organisms/TodoList/index'
 import { Todo } from './models/Todo'
 
 const todos: Array<Todo> = [
@@ -29,7 +29,7 @@ const todos: Array<Todo> = [
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="app">
       <TodoList todoList={todos} addTodo={() => {}} />
     </div>
   )

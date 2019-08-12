@@ -1,0 +1,17 @@
+.default {
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  font-size: 16px;
+  /* box-shadow: 0 0 20px 2px rgba(126, 126, 126, 0.1); */
+}
+
+.default:hover {
+  box-shadow: 5px 5px 10px 2px rgba(126, 126, 126, 0.3);
+}

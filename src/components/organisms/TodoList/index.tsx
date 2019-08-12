@@ -1,11 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Todo } from '../../models/Todo'
+import { Todo } from '../../../models/Todo'
 
-import List from '../molecules/List/index'
-import ListItem from '../molecules/ListItem/index'
-import CheckBox from '../atoms/CheckBox/index'
-import Button from '../atoms/Button/index'
+import List from '../../molecules/List/index'
+import ListItem from '../../molecules/ListItem/index'
+import CheckBox from '../../atoms/CheckBox/index'
+import Button from '../../atoms/Button/index'
+
+import styles from './style.module.css'
 
 interface IProps {
   className?: string
@@ -14,7 +16,7 @@ interface IProps {
 }
 
 const TodoList: React.FC<IProps> = ({ className, todoList, addTodo }) => {
-  const classProps = classNames(className)
+  const classProps = classNames(className, styles['default'])
 
   const createTodos = () =>
     todoList.map((item) => (
@@ -26,7 +28,9 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo }) => {
   return (
     <div className={classProps}>
       <List>{createTodos()}</List>
-      <Button text="할 일 추가" onClick={addTodo} />
+      <div className={styles['buttons']}>
+        <Button text="할 일 추가" onClick={addTodo} />
+      </div>
     </div>
   )
 }
