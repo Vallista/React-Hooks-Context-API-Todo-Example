@@ -1,0 +1,25 @@
+.default {
+  display: flex;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.default:hover {
+  background-color: rgba(126, 126, 126, 0.5);
+}
+
+.default input[type="checkbox"] {
+  display: none;
+}
+
+/* .default input[type="checkbox"]:checked {
+  
+} */
+
+.default p {
+  font-size: 20px;
+}
+
+.default input[type="checkbox"]:checked+p {
+  text-decoration-line: line-through;
+}

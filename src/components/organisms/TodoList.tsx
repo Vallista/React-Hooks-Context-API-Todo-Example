@@ -4,7 +4,7 @@ import { Todo } from '../../models/Todo'
 
 import List from '../molecules/List/index'
 import ListItem from '../molecules/ListItem/index'
-import RadioButton from '../atoms/RadioButton/index'
+import CheckBox from '../atoms/CheckBox/index'
 import Button from '../atoms/Button/index'
 
 interface IProps {
@@ -19,7 +19,7 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo }) => {
   const createTodos = () =>
     todoList.map((item) => (
       <ListItem>
-        <RadioButton text={item.description} name="todos" value={item.description} />
+        <CheckBox text={item.description} name="todos" value={item.description} />
       </ListItem>
     ))
 

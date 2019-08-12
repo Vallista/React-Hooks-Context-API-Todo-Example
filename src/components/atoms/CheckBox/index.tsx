@@ -10,15 +10,15 @@ interface IProps {
   value: string
 }
 
-const RadioButton: React.FC<IProps> = ({ className, text, name, value }) => {
+const CheckBox: React.FC<IProps> = ({ className, text, name, value }) => {
   const classProps = classNames(className, styles['default'])
 
   return (
     <label className={classProps}>
-      <input type="radio" name={name} value={value} />
+      <input type="checkbox" name={name} value={value} />
       <p>{text}</p>
     </label>
   )
 }
 
-export default RadioButton
+export default CheckBox
