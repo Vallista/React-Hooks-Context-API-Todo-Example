@@ -2,9 +2,9 @@ import React from 'react'
 import classNames from 'classnames'
 import { Todo } from '../../models/Todo'
 
-import List from '../molecules/List'
-import ListItem from '../molecules/ListItem'
-import RadioButton from '../atoms/RadioButton'
+import List from '../molecules/List/index'
+import ListItem from '../molecules/ListItem/index'
+import RadioButton from '../atoms/RadioButton/index'
 import Button from '../atoms/Button'
 
 interface IProps {

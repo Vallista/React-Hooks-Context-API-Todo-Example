@@ -1,6 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 
+import styles from './style.module.css'
+
 interface IProps {
   className?: string
   text: string
@@ -9,7 +11,7 @@ interface IProps {
 }
 
 const RadioButton: React.FC<IProps> = ({ className, text, name, value }) => {
-  const classProps = classNames(className)
+  const classProps = classNames(className, styles['default'])
 
   return (
     <label className={classProps}>
