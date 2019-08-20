@@ -1,7 +1,11 @@
 .app {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
+  max-width: 480px;
+  background-color: rgb(255, 255, 255);
 }

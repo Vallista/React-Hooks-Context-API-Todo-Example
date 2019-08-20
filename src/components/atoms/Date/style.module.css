@@ -1,0 +1,16 @@
+.default {
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+.day {
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.month {
+  margin-right: 6px;
+}
+
+.date {}

@@ -3,3 +3,7 @@
   justify-content: center;
   width: 100%;
 }
+
+.default:nth-child(n + 2) {
+  margin-top: 36px;
+}

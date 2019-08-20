@@ -5,19 +5,25 @@ import styles from './style.module.css'
 
 interface IProps {
   className?: string
-  text: string
-  name: string
-  value: string
+  value: boolean
+  onClick(event: React.MouseEvent<HTMLInputElement>): void
 }
 
-const CheckBox: React.FC<IProps> = ({ className, text, name, value }) => {
+const CheckBox: React.FC<IProps> = ({ className, value, onClick }) => {
   const classProps = classNames(className, styles['default'])
+  const checkAnims = classNames(styles['check'], value ? styles['active'] : '')
+
+  const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
+    onClick(event)
+  }
 
   return (
-    <label className={classProps}>
-      <input type="checkbox" name={name} value={value} />
-      <p>{text}</p>
-    </label>
+    <div className={classProps} onClick={handleClick}>
+      <div className={checkAnims}>
+        <div className={styles['check-left']} />
+        <div className={styles['check-right']} />
+      </div>
+    </div>
   )
 }
 

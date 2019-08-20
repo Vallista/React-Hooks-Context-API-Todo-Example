@@ -1,19 +1,43 @@
 .default {
-  display: flex;
-  justify-content: center;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-radius: 30px;
+  border: 3px solid rgb(227, 87, 81);
   cursor: pointer;
-  width: 100%;
 }
 
-.default input[type="checkbox"] {
-  display: none;
+.check {
+  position: relative;
+  transition: top 0.2s, opacity 0.2s;
+  top: 30%;
+  opacity: 0;
 }
 
-.default p {
-  font-size: 20px;
+.active {
+  top: 50%;
+  opacity: 1;
 }
 
-.default input[type="checkbox"]:checked+p {
-  text-decoration-line: line-through;
-  color: rgba(126, 126, 126, 0.3);
+.check-left {
+  position: absolute;
+  width: 13px;
+  height: 4px;
+  background-color: rgb(126, 126, 126);
+  border-radius: 10px;
+  left: 31%;
+  top: 56%;
+  transform: translate(-50%, -50%) rotateZ(40deg);
+}
+
+.check-right {
+  position: absolute;
+  width: 16px;
+  height: 4px;
+  border-radius: 10px;
+  transform: rotateZ(-40deg);
+  background-color: rgb(126, 126, 126);
+  left: 67%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateZ(-40deg);
 }
