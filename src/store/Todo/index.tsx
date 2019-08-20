@@ -8,6 +8,7 @@ export interface IState {
 export interface IActions {
   addTodo(value: Todo): void
   setTodo(index: number, value: Todo): void
+  clearTodo():void
 }
 
 export interface ITodo {
@@ -34,6 +35,11 @@ class TodoProvider extends React.Component {
 
       this.setState({
         todos
+      })
+    },
+    clearTodo: (): void => {
+      this.setState({
+        todos: []
       })
     }
   }

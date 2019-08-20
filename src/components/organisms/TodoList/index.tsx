@@ -17,11 +17,12 @@ interface IProps {
   className?: string
   todoList: Array<Todo>
   addTodo(event: React.FormEvent<HTMLButtonElement>): void
+  clearTodo(event: React.FormEvent<HTMLButtonElement>): void
   onInputChange(index: number, { isComplete }: Todo, event: React.ChangeEvent<HTMLInputElement>): void
   onCheckBoxChange(index: number, { isComplete, description }: Todo): void
 }
 
-const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, onInputChange, onCheckBoxChange }) => {
+const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, clearTodo, onInputChange, onCheckBoxChange }) => {
   const classProps = classNames(className, styles['default'])
 
   const createTodos = () => {
@@ -44,6 +45,10 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, onInputChang
     ))
   }
 
+  const deleteTodos = () => {
+    
+  }
+
   return (
     <div className={classProps}>
       <List>{createTodos()}</List>
@@ -52,6 +57,9 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, onInputChang
           <div className={styles['image-wrapper']}>
             <Image src={PlusIcon} />
           </div>
+        </Button>
+        <Button onClick={clearTodo}>
+          
         </Button>
       </div>
     </div>

@@ -36,11 +36,16 @@ const TodoListContainer: React.FC<IProps> = () => {
     todo && todo.actions.setTodo(index, item)
   }
 
+  const clearTodo = (event: React.FormEvent<HTMLButtonElement>): void => {
+    todo && todo.actions.clearTodo()
+  }
+
   return (
     todo && (
       <TodoList
         todoList={todo.state.todos}
         addTodo={addTodo}
+        clearTodo={clearTodo}
         onInputChange={onInputChange}
         onCheckBoxChange={onCheckBoxChange}
       />
