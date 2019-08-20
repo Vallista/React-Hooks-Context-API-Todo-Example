@@ -45,10 +45,6 @@ const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, clearTodo, o
     ))
   }
 
-  const deleteTodos = () => {
-    
-  }
-
   return (
     <div className={classProps}>
       <List>{createTodos()}</List>
