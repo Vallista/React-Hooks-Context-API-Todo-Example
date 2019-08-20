@@ -14,48 +14,50 @@ import styles from './style.module.css'
 import PlusIcon from '../../../assets/icons/plus-button.svg'
 
 interface IProps {
-  className?: string
-  todoList: Array<Todo>
-  addTodo(event: React.FormEvent<HTMLButtonElement>): void
-  onInputChange(index: number, { isComplete }: Todo, event: React.ChangeEvent<HTMLInputElement>): void
-  onCheckBoxChange(index: number, { isComplete, description }: Todo): void
+	className?: string
+	todoList: Array<Todo>
+	addTodo(event: React.FormEvent<HTMLButtonElement>): void
+	clearTodo(event: React.FormEvent<HTMLButtonElement>): void
+	onInputChange(index: number, { isComplete }: Todo, event: React.ChangeEvent<HTMLInputElement>): void
+	onCheckBoxChange(index: number, { isComplete, description }: Todo): void
 }
 
-const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, onInputChange, onCheckBoxChange }) => {
-  const classProps = classNames(className, styles['default'])
+const TodoList: React.FC<IProps> = ({ className, todoList, addTodo, clearTodo, onInputChange, onCheckBoxChange }) => {
+	const classProps = classNames(className, styles['default'])
 
-  const createTodos = () => {
-    return todoList.map((item, index) => (
-      <ListItem key={index} className={styles['list-item']}>
-        <Input
-          className={classNames(styles['list-item-left'], item.isComplete ? styles['active-middle-line'] : '')}
-          placeholder="할 일을 입력해주세요."
-          value={item.description}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => onInputChange(index, item, event)}
-        />
-        <CheckBox
-          className={classNames(styles['list-item-right'])}
-          value={item.isComplete}
-          onClick={() => {
-            onCheckBoxChange(index, item)
-          }}
-        />
-      </ListItem>
-    ))
-  }
+	const createTodos = () => {
+		return todoList.map((item, index) => (
+			<ListItem key={index} className={styles['list-item']}>
+				<Input
+					className={classNames(styles['list-item-left'], item.isComplete ? styles['active-middle-line'] : '')}
+					placeholder='할 일을 입력해주세요.'
+					value={item.description}
+					onChange={(event: React.ChangeEvent<HTMLInputElement>) => onInputChange(index, item, event)}
+				/>
+				<CheckBox
+					className={classNames(styles['list-item-right'])}
+					value={item.isComplete}
+					onClick={() => {
+						onCheckBoxChange(index, item)
+					}}
+				/>
+			</ListItem>
+		))
+	}
 
-  return (
-    <div className={classProps}>
-      <List>{createTodos()}</List>
-      <div className={styles['buttons']}>
-        <Button onClick={addTodo}>
-          <div className={styles['image-wrapper']}>
-            <Image src={PlusIcon} />
-          </div>
-        </Button>
-      </div>
-    </div>
-  )
+	return (
+		<div className={classProps}>
+			<Button text='비우기' onClick={clearTodo} />
+			<List>{createTodos()}</List>
+			<div className={styles['buttons']}>
+				<Button onClick={addTodo}>
+					<div className={styles['image-wrapper']}>
+						<Image src={PlusIcon} />
+					</div>
+				</Button>
+			</div>
+		</div>
+	)
 }
 
 export default TodoList
