@@ -5,6 +5,10 @@
   margin-top: 24px;
 }
 
+.text-area {
+  margin-left: 10px;
+}
+
 .title {
   margin: 0 0 6px 0;
   color: rgb(128, 128, 128);
@@ -18,4 +22,19 @@
 .date {
   color: rgb(160, 160, 160);
   margin-left: 2px;
+}
+
+.image-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+.menu-button {
+  background: transparent;
+  margin-left: -30px;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
 }

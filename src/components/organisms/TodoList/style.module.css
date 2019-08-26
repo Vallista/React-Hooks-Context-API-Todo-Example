@@ -9,8 +9,26 @@
   box-sizing: border-box;
 }
 
+.complete-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 24px 42px 24px 42px;
+  box-sizing: border-box;
+  position: relative;
+}
+
 .buttons {
   margin-top: 24px;
+}
+
+.clear-button {
+  margin-top: 24px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
 }
 
 .image-wrapper {

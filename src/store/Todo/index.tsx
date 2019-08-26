@@ -3,11 +3,15 @@ import { Todo } from '../../models/Todo'
 
 export interface IState {
   todos: Array<Todo>
+  isOpenMenu: boolean
 }
 
 export interface IActions {
   addTodo(value: Todo): void
   setTodo(index: number, value: Todo): void
+  clearTodo(): void
+  openMenu(): void
+  closeMenu(): void
 }
 
 export interface ITodo {
@@ -21,7 +25,8 @@ const { Provider, Consumer: TodoConsumer } = context
 
 class TodoProvider extends React.Component {
   state = {
-    todos: []
+    todos: [],
+    isOpenMenu: false,
   }
 
   actions = {
@@ -33,9 +38,22 @@ class TodoProvider extends React.Component {
       todos[index] = value
 
       this.setState({
-        todos
+        todos,
       })
-    }
+    },
+    clearTodo: (): void => {
+      this.setState({ todos: [] })
+    },
+
+    openMenu: (): void => {
+      this.setState({ isOpenMenu: true })
+    },
+    closeMenu: (): void => {
+      this.setState({ isOpenMenu: false })
+    },
+    getMenuState: (): boolean => {
+      return this.state.isOpenMenu
+    },
   }
 
   render() {
