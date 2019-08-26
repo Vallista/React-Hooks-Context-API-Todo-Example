@@ -6,7 +6,7 @@ import { Todo } from '../models/Todo'
 
 interface IProps {}
 
-const TodoListContainer: React.FC<IProps> = () => {
+const CompleteListContainer: React.FC<IProps> = () => {
   const newTodo: Todo = {
     isComplete: false,
     description: '',
@@ -22,33 +22,21 @@ const TodoListContainer: React.FC<IProps> = () => {
     todo && todo.actions.clearTodo()
   }
 
-  const closeMenu = (event: React.FormEvent<HTMLButtonElement>): void => {}
-
-  const onInputChange = (index: number, { isComplete }: Todo, event: React.ChangeEvent<HTMLInputElement>): void => {
-    const item = {
-      isComplete,
-      description: event.currentTarget.value,
-    }
-
-    todo && todo.actions.setTodo(index, item)
+  const closeMenu = (event: React.FormEvent<HTMLButtonElement>): void => {
+    todo && todo.actions.closeMenu()
   }
 
-  const onCheckBoxChange = (index: number, { isComplete, description }: Todo): void => {
-    const item = {
-      isComplete: !isComplete,
-      description,
-    }
+  const onInputChange = (index: number, { isComplete }: Todo, event: React.ChangeEvent<HTMLInputElement>): void => {}
+  const onCheckBoxChange = (index: number, { isComplete, description }: Todo): void => {}
 
-    todo && todo.actions.setTodo(index, item)
-  }
-
-  if (todo && todo.state.isOpenMenu) {
+  if (!(todo && todo.state.isOpenMenu)) {
     return <div />
   }
 
   return (
     todo && (
       <TodoList
+        onlyComplete={true}
         todoList={todo.state.todos}
         addTodo={addTodo}
         clearTodo={clearTodo}
@@ -60,4 +48,4 @@ const TodoListContainer: React.FC<IProps> = () => {
   )
 }
 
-export default TodoListContainer
+export default CompleteListContainer
